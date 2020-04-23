@@ -1,0 +1,16 @@
+{
+  "name": "audiovideochatsocket",
+  "version": "1.0.0",
+  "description": "\"a video auudio chat app using webRTC and socket.io\"",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "rishabh sharma",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0"
+  }
+}
