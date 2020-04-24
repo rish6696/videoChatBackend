@@ -7,16 +7,13 @@ const socket = require('socket.io');
 
 const server = http.createServer(app);
 
-const io = socket(server,{
-    handlePreflightRequest: (req, res) => {
-        const headers = {
-            "Access-Control-Allow-Headers": "Content-Type, Authorization",
-            "Access-Control-Allow-Origin": req.headers.origin, //or the specific origin you want to give access to,
-            "Access-Control-Allow-Credentials": true
-        };
-        res.writeHead(200, headers);
-        res.end();
+const io = socket(server);
+
+io.origins((origin, callback) => {
+    if (origin !== 'https://keen-einstein-bdb45d.netlify.app/') {
+        return callback('origin not allowed', false);
     }
+    callback(null, true);
 });
 
 const users = {};
