@@ -9,12 +9,12 @@ const server = http.createServer(app);
 
 const io = socket(server);
 
-io.origins((origin, callback) => {
-    if (origin !== 'https://keen-einstein-bdb45d.netlify.app/') {
-        return callback('origin not allowed', false);
-    }
-    callback(null, true);
-});
+// io.origins((origin, callback) => {
+//     if (origin !== 'https://keen-einstein-bdb45d.netlify.app/') {
+//         return callback('origin not allowed', false);
+//     }
+//     callback(null, true);
+// });
 
 const users = {};
 
