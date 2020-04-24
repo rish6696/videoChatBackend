@@ -7,7 +7,7 @@ const socket = require('socket.io');
 
 const server = http.createServer(app);
 
-const io = socket(server);
+const io = socket(server,{origins:'*:*'});
 
 const users = {};
 
@@ -15,6 +15,7 @@ const users = {};
 app.use('/',(req,res)=>{
     res.send('hello');
 })
+
 
 io.on('connection', socket => {
     console.log('device connected with socket id',socket.id)
